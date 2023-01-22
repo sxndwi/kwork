@@ -508,3 +508,72 @@ textarea {
 .order_contacts:hover .price_link {
     color: White;
 }
+@media screen and (max-width: 1200px) {
+    .aside_subtitle {
+      width: 500px;
+    }
+  }
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        max-width: 90%;
+    }
+    .formats_choice {
+      padding: 10px;
+      width: 90%;
+      height: auto;
+      flex-wrap: wrap;
+    }
+    .aside_wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .text {
+        margin: 0;
+        text-align: center;
+    }
+    .aside, .why_wrapper {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .header_logo {
+        width: auto;
+    }
+    .prices_inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .price,.find_content, .clients_content:last-child {
+        margin-bottom: 25px;
+    }
+    .prices, .find, .clients,.contacts {
+        height: auto;
+    }
+    .find_inner, .clients_inner {
+        flex-direction: column;
+    }
+    .quote_title,.intro_title {
+        font-size: 34px;
+        line-height: 44px;
+    }
+    .img {
+        max-width: 90%;
+    }
+    .aside_subtitle {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 500px){
+    .formats_choice {
+        justify-content: center;
+    }
+    .quote_title {
+        font-size: 22px;
+    }
+    input {
+        width: 90%;
+    }
+    textarea {
+        width: 85%;
+    }
+}
