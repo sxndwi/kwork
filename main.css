@@ -42,7 +42,7 @@
 }
 .intro {
     min-height: 850px;
-    background: url(img/background.png) no-repeat center;
+    background: url(background.png) no-repeat center;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -219,7 +219,7 @@
 }
 .why {
     min-height: 660px;
-    background: url(img/background2.png) no-repeat center;
+    background: url(background2.png) no-repeat center;
     background-size: cover;
 }
 .why_title {
@@ -305,7 +305,7 @@
 }
 .clients {
     min-height: 433px;
-    background: url(img/background3.jpg) no-repeat center;
+    background: url(background3.jpg) no-repeat center;
     background-size: cover;
 }
 .clients_title {
