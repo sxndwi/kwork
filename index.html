@@ -8,6 +8,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -60,7 +61,7 @@
             </div>
         </div>
         <div class="aside_wrapper">
-            <img src="pre.png" alt="ВИДЕО ПРЕРОЛЛ">
+            <img src="img/pre.png" alt="ВИДЕО ПРЕРОЛЛ">
             <div id="video_wrapper" class="text">
                 <h3 class="aside_title">ВИДЕО ПРЕРОЛЛ</h3>
                 <p class="aside_subtitle">
@@ -175,22 +176,22 @@
         <div class="wrapper">
             <div class="find_inner">
                 <div class="find_content">
-                    <img src="icon1.svg" alt="">
+                    <img src="img/icon1.svg" alt="">
                     <p class="find_text">Оставьте заявку</p>
                     <p class="find_subtitle find_text">Заполните контактную форму</p>
                 </div>
                 <div class="find_content">
-                    <img src="icon2.svg" alt="">
+                    <img src="img/icon2.svg" alt="">
                     <p class="find_text">Заполните бриф</p>
                     <p class="find_subtitle find_text">Расскажите нам о своих целях</p>
                 </div>
                 <div class="find_content">
-                    <img src="icon3.svg" alt="">
+                    <img src="img/icon3.svg" alt="">
                     <p class="find_text">Согласуйте план работ</p>
                     <p class="find_subtitle find_text">Подготовим план рекламной кампании</p>
                 </div>
                 <div class="find_content">
-                    <img src="icon4.svg" alt="">
+                    <img src="img/icon4.svg" alt="">
                     <p class="find_text">Достигайте целей</p>
                     <p class="find_subtitle find_text">Получайте рост клиентов и конверсий</p>
                 </div>
@@ -322,14 +323,19 @@
     <section id="contacts" class="contacts">
         <h3 class="contacts_title">Оставьте заявку</h3>
         <p class="contacts_subtitle">и узнайте о ваши рекламных возможностях, просто заказав бесплатную консультацию</p>
-        <div class="contacts_wrapper">
-            <input placeholder="Ваше имя:" class="name" type="text">
-            <input placeholder="Ваш email:" email type="text">
-            <textarea placeholder="Расскажите о ваших целях:" ></textarea>
-        </div>
-        <button class="order order_contacts">
-            <a class="price_link" href="/">ЗАКАЗАТЬ РЕКЛАМУ</a>
-        </button>
+            <form>
+                        <!-- Hidden Required Fields -->
+                        <input type="hidden" name="project_name" value="Site Name">
+                        <input type="hidden" name="admin_email" value="kwork1997@mail.ru">
+                        <input type="hidden" name="form_subject" value="Form Subject">
+                        <!-- END Hidden Required Fields -->
+            <input placeholder="Ваше имя:" class="name" type="text" name="name" required>
+            <input placeholder="Ваш email:" email type="text" name="email" required>
+            <textarea placeholder="Расскажите о ваших целях:" name="body"></textarea>
+            <button type="submit" class="order order_contacts">
+            ЗАКАЗАТЬ РЕКЛАМУ
+            </button>
+            </form>
     </section>
     <footer class="footer">
         <nav class="header_list">
@@ -340,6 +346,26 @@
         <p class="copyright">ООО "Да Бро Технологии"</p>
     </footer>
     <script>
+        $(document).ready(function () {
+
+                //E-mail Ajax Send
+                $("form").submit(function () { //Change
+                    var th = $(this);
+                    $.ajax({
+                        type: "POST",
+                        url: "mail.php", //Change
+                        data: th.serialize()
+                    }).done(function () {
+                        alert("Thank you!");
+                        setTimeout(function () {
+                            // Done Functions
+                            th.trigger("reset");
+                        }, 1000);
+                    });
+                    return false;
+                });
+
+            });
     $(document).ready(function () {
         $("#video").css('outline', '0');
         $("#video").focus();
