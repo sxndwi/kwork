@@ -505,3 +505,6 @@ textarea {
     text-align: center;
     color: #020203;
 }
+.order_contacts:hover .price_link {
+    color: White;
+}
